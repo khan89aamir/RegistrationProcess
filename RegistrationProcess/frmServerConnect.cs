@@ -112,7 +112,7 @@ namespace RegistrationProcess
             //clsConnection_DAL ObjDAL = new clsConnection_DAL(true);
             DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "[SoftKey],[ExpiryDate],[StatusDate]"
                 , "[IsServer] = 1 AND [IsKeyEnter] = 1", null);
-            if (dt != null && dt.Rows.Count > 0)
+            if (ObjUtil.ValidateTable(dt))
             {
                 ObjDAL.SetColumnData("PcName", SqlDbType.NVarChar, Environment.MachineName);
                 ObjDAL.SetColumnData("StatusDate", SqlDbType.VarChar, dt.Rows[0]["StatusDate"].ToString());
@@ -187,7 +187,7 @@ namespace RegistrationProcess
             catch (Exception ex)
             {
                 IsConnect = false;
-                clsUtility.ShowInfoMessage("First select server to resore database.", clsUtility.strProjectTitle);
+                clsUtility.ShowInfoMessage("First select server to restore database.", clsUtility.strProjectTitle);
             }
         }
         bool IsConnect = false;

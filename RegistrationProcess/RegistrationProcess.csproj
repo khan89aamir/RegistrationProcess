@@ -53,9 +53,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreApp, Version=2.1.3.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="CoreApp, Version=3.0.0.1, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CoreApp 3.0\CoreApp\bin\x86\Debug\CoreApp.dll</HintPath>
+      <HintPath>..\..\..\IMS\packages\CoreAppLib.1.0.2\lib\CoreApp.dll</HintPath>
     </Reference>
     <Reference Include="CoreSys, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
