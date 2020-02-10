@@ -57,8 +57,8 @@ namespace RegistrationProcess
             this.Cursor = Cursors.WaitCursor;
             if (cboAuthenticationType.SelectedIndex == 0)
             {
-                clsDMCommon.ObjCon.ConnectionString = "Server=" + clsDMCommon.strServerName + ";Database=" + ClientDBName + ";uid=" + clsDMCommon.strUserID 
-                    + ";pwd= " + clsDMCommon.strUserPassword + ";" +"Max Pool Size = 5004;Pooling=True";
+                clsDMCommon.ObjCon.ConnectionString = "Server=" + clsDMCommon.strServerName + ";Database=" + ClientDBName + ";uid=" + clsDMCommon.strUserID
+                    + ";pwd= " + clsDMCommon.strUserPassword + ";" + "Max Pool Size = 5004;Pooling=True";
 
                 clsConnection_DAL ObjDAL = new clsConnection_DAL();
                 ObjDAL.SetConnectionString(clsDMCommon.ObjCon.ConnectionString);
@@ -83,18 +83,20 @@ namespace RegistrationProcess
                 grpDBRestore.Enabled = false;
                 ConnectToDB(clsDMCommon.strServerName, clsDMCommon.strUserID, clsDMCommon.strUserPassword, ClientDBName);
 
-                String conn = "Server=" + clsDMCommon.strServerName + ";Database=" + ClientDBName + ";uid=" + clsDMCommon.strUserID 
-                    + ";pwd= " + clsDMCommon.strUserPassword + ";" +"Max Pool Size = 5004;Pooling=True";
+                String conn = "Server=" + clsDMCommon.strServerName + ";Database=" + ClientDBName + ";uid=" + clsDMCommon.strUserID
+                    + ";pwd= " + clsDMCommon.strUserPassword + ";" + "Max Pool Size = 5004;Pooling=True";
                 String EncrConn = ObjUtil.Encrypt(conn, true);
-                if(!System.IO.Directory.Exists("AppConfig"))
+                if (!System.IO.Directory.Exists("AppConfig"))
                 {
                     System.IO.Directory.CreateDirectory("AppConfig");
                     File.WriteAllText("AppConfig\\ServerConfig.sc", EncrConn);
                 }
-                
+
                 ObjDAL = new clsConnection_DAL(true);
-                DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "[ID]", "PcName = '"+ Environment.MachineName+"'", null);
-                if (dt == null || dt.Rows.Count == 0)
+                //DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "RegistrationID", "PcName = '"+ Environment.MachineName+"'", null);
+                int a = ObjDAL.CountRecords(ClientDBName + ".dbo.RegistrationDetails", "PcName = '" + Environment.MachineName + "'");
+                //if (dt == null || dt.Rows.Count == 0)
+                if (a == 0)
                 {
                     InsertClientRegistration();
                 }
@@ -110,8 +112,7 @@ namespace RegistrationProcess
         private void InsertClientRegistration()
         {
             //clsConnection_DAL ObjDAL = new clsConnection_DAL(true);
-            DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "[SoftKey],[ExpiryDate],[StatusDate]"
-                , "[IsServer] = 1 AND [IsKeyEnter] = 1", null);
+            DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "[SoftKey],[ExpiryDate],[StatusDate]", "[IsServer] = 1 AND [IsKeyEnter] = 1", null);
             if (ObjUtil.ValidateTable(dt))
             {
                 ObjDAL.SetColumnData("PcName", SqlDbType.NVarChar, Environment.MachineName);
@@ -138,7 +139,7 @@ namespace RegistrationProcess
             txtPassword.Clear();
             txtServerName.Focus();
 
-            btnConnect.Enabled=true;
+            btnConnect.Enabled = true;
         }
 
         private void ConnectToDB(string strServer, string userID, string strPassword)
@@ -297,8 +298,8 @@ namespace RegistrationProcess
                 clsDMCommon.ObjCon.Close();
                 CloseLoading();
 
-                String conn = "Server=" + clsDMCommon.strServerName + ";Database=" + strRDatabseName + ";uid=" + clsDMCommon.strUserID 
-                    + ";pwd= " + clsDMCommon.strUserPassword + ";" +"Max Pool Size = 5004;Pooling=True";
+                String conn = "Server=" + clsDMCommon.strServerName + ";Database=" + strRDatabseName + ";uid=" + clsDMCommon.strUserID
+                    + ";pwd= " + clsDMCommon.strUserPassword + ";" + "Max Pool Size = 5004;Pooling=True";
                 String EncrConn = ObjUtil.Encrypt(conn, true);
                 if (!Directory.Exists("AppConfig"))
                 {

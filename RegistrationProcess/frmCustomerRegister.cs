@@ -43,7 +43,7 @@ namespace RegistrationProcess
 
         private void ValidatingExpDate()
         {
-            DataTable dt = ObjDAL.GetData(DBName + ".dbo.RegistrationDetails", "[PcName]='" + Environment.MachineName + "' and [IsKeyEnter]=1", "ID");
+            DataTable dt = ObjDAL.GetData(DBName + ".dbo.RegistrationDetails", "[PcName]='" + Environment.MachineName + "' and [IsKeyEnter]=1", "RegistrationID");
             if (dt != null && dt.Rows.Count > 0)
             {
                 dDatetimepicker dd = new dDatetimepicker(ValidatingExpDate);
