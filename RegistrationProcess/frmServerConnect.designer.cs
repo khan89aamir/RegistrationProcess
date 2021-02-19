@@ -29,269 +29,449 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmServerConnect));
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboAuthenticationType = new System.Windows.Forms.ComboBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtUserID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtServerName = new System.Windows.Forms.TextBox();
-            this.grpDBRestore = new System.Windows.Forms.GroupBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnRestore = new System.Windows.Forms.Button();
-            this.txtDabasePath = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblServerName = new System.Windows.Forms.Label();
+            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtUserID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblUserID = new System.Windows.Forms.Label();
+            this.btnConnect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtServerName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.grpKrytonHeader = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.groupBox1 = new gGlowBox.gGlowGroupBox();
+            this.cboAuthenticationType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kgrpDBRestore = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.grpDBRestore = new gGlowBox.gGlowGroupBox();
+            this.btnRestore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.lblRestoreDatabase = new System.Windows.Forms.Label();
+            this.btnBrowse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtDabasePath = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kgrpbackupDB = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.gGlowGroupBox1 = new gGlowBox.gGlowGroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.grpKrytonHeader)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpKrytonHeader.Panel)).BeginInit();
+            this.grpKrytonHeader.Panel.SuspendLayout();
+            this.grpKrytonHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboAuthenticationType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpDBRestore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpDBRestore.Panel)).BeginInit();
+            this.kgrpDBRestore.Panel.SuspendLayout();
+            this.kgrpDBRestore.SuspendLayout();
             this.grpDBRestore.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpbackupDB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpbackupDB.Panel)).BeginInit();
+            this.kgrpbackupDB.Panel.SuspendLayout();
+            this.kgrpbackupDB.SuspendLayout();
+            this.gGlowGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblServerName
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(49, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Server Name :";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.cboAuthenticationType);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(52, 171);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(308, 70);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Server Type :";
-            // 
-            // cboAuthenticationType
-            // 
-            this.cboAuthenticationType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAuthenticationType.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboAuthenticationType.FormattingEnabled = true;
-            this.cboAuthenticationType.Items.AddRange(new object[] {
-            "Server",
-            "Client"});
-            this.cboAuthenticationType.Location = new System.Drawing.Point(54, 27);
-            this.cboAuthenticationType.Name = "cboAuthenticationType";
-            this.cboAuthenticationType.Size = new System.Drawing.Size(211, 23);
-            this.cboAuthenticationType.TabIndex = 12;
-            this.cboAuthenticationType.SelectionChangeCommitted += new System.EventHandler(this.cboAuthenticationType_SelectionChangeCommitted);
+            this.lblServerName.AutoSize = true;
+            this.lblServerName.BackColor = System.Drawing.Color.Transparent;
+            this.lblServerName.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lblServerName.Location = new System.Drawing.Point(12, 14);
+            this.lblServerName.Name = "lblServerName";
+            this.lblServerName.Size = new System.Drawing.Size(97, 19);
+            this.lblServerName.TabIndex = 0;
+            this.lblServerName.Text = "Server Name :";
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(149, 81);
+            this.txtPassword.Location = new System.Drawing.Point(112, 80);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(178, 22);
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(197, 29);
+            this.txtPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtPassword.StateCommon.Border.Rounding = 10;
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.txtPassword.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
-            // label4
+            // lblPassword
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(49, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Password :";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lblPassword.Location = new System.Drawing.Point(12, 85);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(76, 19);
+            this.lblPassword.TabIndex = 7;
+            this.lblPassword.Text = "Password :";
             // 
             // txtUserID
             // 
             this.txtUserID.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserID.Location = new System.Drawing.Point(149, 48);
+            this.txtUserID.Location = new System.Drawing.Point(112, 45);
             this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(178, 22);
+            this.txtUserID.Size = new System.Drawing.Size(197, 29);
+            this.txtUserID.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtUserID.StateCommon.Border.Rounding = 10;
             this.txtUserID.TabIndex = 1;
-            this.txtUserID.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.txtUserID.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
-            // label3
+            // lblUserID
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(49, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "User ID :";
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserID.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lblUserID.Location = new System.Drawing.Point(12, 49);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(65, 19);
+            this.lblUserID.TabIndex = 5;
+            this.lblUserID.Text = "User ID :";
             // 
             // btnConnect
             // 
             this.btnConnect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConnect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gGlowGroupBox1.SetEffectType(this.btnConnect, gGlowBox.gGlowGroupBox.eEffectType.Glow);
             this.btnConnect.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.Location = new System.Drawing.Point(148, 119);
+            this.btnConnect.Location = new System.Drawing.Point(112, 116);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 25);
+            this.gGlowGroupBox1.SetsGlowColor(this.btnConnect, ((gGlowBox.gGlowGroupBox.SerialColor)(resources.GetObject("btnConnect.sGlowColor"))));
+            this.btnConnect.Size = new System.Drawing.Size(90, 30);
+            this.btnConnect.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnConnect.StateCommon.Border.Rounding = 12;
             this.btnConnect.TabIndex = 6;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Values.Text = "Connect";
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            this.btnConnect.MouseEnter += new System.EventHandler(this.btnConnect_MouseEnter);
-            this.btnConnect.MouseLeave += new System.EventHandler(this.btnConnect_MouseLeave);
             // 
             // btnClear
             // 
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gGlowGroupBox1.SetEffectType(this.btnClear, gGlowBox.gGlowGroupBox.eEffectType.Glow);
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(252, 119);
+            this.btnClear.Location = new System.Drawing.Point(219, 116);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 25);
+            this.gGlowGroupBox1.SetsGlowColor(this.btnClear, ((gGlowBox.gGlowGroupBox.SerialColor)(resources.GetObject("btnClear.sGlowColor"))));
+            this.btnClear.Size = new System.Drawing.Size(90, 30);
+            this.btnClear.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnClear.StateCommon.Border.Rounding = 12;
             this.btnClear.TabIndex = 7;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Values.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            this.btnClear.MouseEnter += new System.EventHandler(this.btnConnect_MouseEnter);
-            this.btnClear.MouseLeave += new System.EventHandler(this.btnConnect_MouseLeave);
             // 
             // txtServerName
             // 
             this.txtServerName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServerName.Location = new System.Drawing.Point(149, 20);
+            this.txtServerName.Location = new System.Drawing.Point(112, 10);
             this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(178, 22);
+            this.txtServerName.Size = new System.Drawing.Size(197, 29);
+            this.txtServerName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtServerName.StateCommon.Border.Rounding = 10;
             this.txtServerName.TabIndex = 0;
-            this.txtServerName.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.txtServerName.Leave += new System.EventHandler(this.textBox1_Leave);
+            // 
+            // grpKrytonHeader
+            // 
+            this.grpKrytonHeader.HeaderVisibleSecondary = false;
+            this.grpKrytonHeader.Location = new System.Drawing.Point(21, 210);
+            this.grpKrytonHeader.Name = "grpKrytonHeader";
+            this.grpKrytonHeader.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            // 
+            // grpKrytonHeader.Panel
+            // 
+            this.grpKrytonHeader.Panel.Controls.Add(this.groupBox1);
+            this.grpKrytonHeader.Size = new System.Drawing.Size(332, 86);
+            this.grpKrytonHeader.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.grpKrytonHeader.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.grpKrytonHeader.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.grpKrytonHeader.StateCommon.Border.Rounding = 10;
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.Transparent;
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Back.Image = global::RegistrationProcess.Properties.Resources.titlebg_green;
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Border.Color1 = System.Drawing.Color.White;
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Border.Rounding = 10;
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.grpKrytonHeader.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpKrytonHeader.TabIndex = 331;
+            this.grpKrytonHeader.ValuesPrimary.Heading = "Server Type";
+            this.grpKrytonHeader.ValuesPrimary.Image = null;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.cboAuthenticationType);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Enabled = false;
+            this.groupBox1.GlowAmount = 22;
+            this.groupBox1.GlowColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(179)))), ((int)(((byte)(205)))));
+            this.groupBox1.GlowFeather = 60;
+            this.groupBox1.GlowOn = true;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 52);
+            this.groupBox1.TabIndex = 287;
+            // 
+            // cboAuthenticationType
+            // 
+            this.cboAuthenticationType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAuthenticationType.DropDownWidth = 200;
+            this.cboAuthenticationType.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.cboAuthenticationType.FormattingEnabled = true;
+            this.cboAuthenticationType.Items.AddRange(new object[] {
+            "Server",
+            "Client"});
+            this.cboAuthenticationType.Location = new System.Drawing.Point(42, 9);
+            this.cboAuthenticationType.Name = "cboAuthenticationType";
+            this.cboAuthenticationType.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.cboAuthenticationType.Size = new System.Drawing.Size(211, 27);
+            this.cboAuthenticationType.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cboAuthenticationType.StateCommon.ComboBox.Border.Rounding = 10;
+            this.cboAuthenticationType.TabIndex = 2;
+            this.cboAuthenticationType.SelectionChangeCommitted += new System.EventHandler(this.cboAuthenticationType_SelectionChangeCommitted);
+            // 
+            // kgrpDBRestore
+            // 
+            this.kgrpDBRestore.HeaderVisibleSecondary = false;
+            this.kgrpDBRestore.Location = new System.Drawing.Point(21, 302);
+            this.kgrpDBRestore.Name = "kgrpDBRestore";
+            // 
+            // kgrpDBRestore.Panel
+            // 
+            this.kgrpDBRestore.Panel.Controls.Add(this.grpDBRestore);
+            this.kgrpDBRestore.Size = new System.Drawing.Size(332, 147);
+            this.kgrpDBRestore.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kgrpDBRestore.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.kgrpDBRestore.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kgrpDBRestore.StateCommon.Border.Rounding = 10;
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Back.Image = ((System.Drawing.Image)(resources.GetObject("kgrpDBRestore.StateCommon.HeaderPrimary.Back.Image")));
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Border.Color1 = System.Drawing.Color.White;
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Border.Rounding = 10;
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kgrpDBRestore.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kgrpDBRestore.TabIndex = 332;
+            this.kgrpDBRestore.ValuesPrimary.Heading = "Restore Database";
+            this.kgrpDBRestore.ValuesPrimary.Image = null;
             // 
             // grpDBRestore
             // 
             this.grpDBRestore.BackColor = System.Drawing.Color.Transparent;
-            this.grpDBRestore.Controls.Add(this.btnBrowse);
             this.grpDBRestore.Controls.Add(this.btnRestore);
+            this.grpDBRestore.Controls.Add(this.lblRestoreDatabase);
+            this.grpDBRestore.Controls.Add(this.btnBrowse);
             this.grpDBRestore.Controls.Add(this.txtDabasePath);
-            this.grpDBRestore.Controls.Add(this.label2);
+            this.grpDBRestore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpDBRestore.Enabled = false;
-            this.grpDBRestore.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpDBRestore.Location = new System.Drawing.Point(52, 255);
+            this.grpDBRestore.GlowAmount = 22;
+            this.grpDBRestore.GlowColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(179)))), ((int)(((byte)(205)))));
+            this.grpDBRestore.GlowFeather = 60;
+            this.grpDBRestore.GlowOn = true;
+            this.grpDBRestore.Location = new System.Drawing.Point(0, 0);
             this.grpDBRestore.Name = "grpDBRestore";
-            this.grpDBRestore.Size = new System.Drawing.Size(332, 147);
-            this.grpDBRestore.TabIndex = 12;
-            this.grpDBRestore.TabStop = false;
-            this.grpDBRestore.Text = "Restore Databsae";
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBrowse.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(243, 23);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 25);
-            this.btnBrowse.TabIndex = 4;
-            this.btnBrowse.Text = "Browse";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            this.btnBrowse.MouseEnter += new System.EventHandler(this.btnConnect_MouseEnter);
-            this.btnBrowse.MouseLeave += new System.EventHandler(this.btnConnect_MouseLeave);
+            this.grpDBRestore.Size = new System.Drawing.Size(324, 113);
+            this.grpDBRestore.TabIndex = 287;
             // 
             // btnRestore
             // 
-            this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRestore.AutoSize = true;
             this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestore.Enabled = false;
-            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestore.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.Location = new System.Drawing.Point(240, 107);
+            this.grpDBRestore.SetEffectType(this.btnRestore, gGlowBox.gGlowGroupBox.eEffectType.Glow);
+            this.btnRestore.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnRestore.Location = new System.Drawing.Point(229, 79);
             this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(75, 25);
-            this.btnRestore.TabIndex = 6;
-            this.btnRestore.Text = "Restore";
-            this.btnRestore.UseVisualStyleBackColor = true;
+            this.btnRestore.OverrideFocus.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.btnRestore.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.grpDBRestore.SetsGlowColor(this.btnRestore, ((gGlowBox.gGlowGroupBox.SerialColor)(resources.GetObject("btnRestore.sGlowColor"))));
+            this.btnRestore.Size = new System.Drawing.Size(90, 31);
+            this.btnRestore.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnRestore.StateCommon.Border.Rounding = 12;
+            this.btnRestore.TabIndex = 311;
+            this.btnRestore.Values.Text = "Restore";
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
-            this.btnRestore.MouseEnter += new System.EventHandler(this.btnConnect_MouseEnter);
-            this.btnRestore.MouseLeave += new System.EventHandler(this.btnConnect_MouseLeave);
+            // 
+            // lblRestoreDatabase
+            // 
+            this.lblRestoreDatabase.AutoSize = true;
+            this.lblRestoreDatabase.BackColor = System.Drawing.Color.Transparent;
+            this.lblRestoreDatabase.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lblRestoreDatabase.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblRestoreDatabase.Location = new System.Drawing.Point(9, 16);
+            this.lblRestoreDatabase.Name = "lblRestoreDatabase";
+            this.lblRestoreDatabase.Size = new System.Drawing.Size(195, 19);
+            this.lblRestoreDatabase.TabIndex = 2;
+            this.lblRestoreDatabase.Text = "Browse Database To Restore :";
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.AutoSize = true;
+            this.btnBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.grpDBRestore.SetEffectType(this.btnBrowse, gGlowBox.gGlowGroupBox.eEffectType.Glow);
+            this.btnBrowse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnBrowse.Location = new System.Drawing.Point(229, 9);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.OverrideFocus.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.btnBrowse.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.grpDBRestore.SetsGlowColor(this.btnBrowse, ((gGlowBox.gGlowGroupBox.SerialColor)(resources.GetObject("btnBrowse.sGlowColor"))));
+            this.btnBrowse.Size = new System.Drawing.Size(90, 31);
+            this.btnBrowse.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnBrowse.StateCommon.Border.Rounding = 12;
+            this.btnBrowse.TabIndex = 310;
+            this.btnBrowse.Values.Text = "Browse";
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // txtDabasePath
             // 
             this.txtDabasePath.BackColor = System.Drawing.Color.White;
-            this.txtDabasePath.Location = new System.Drawing.Point(6, 68);
+            this.txtDabasePath.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtDabasePath.Location = new System.Drawing.Point(4, 46);
             this.txtDabasePath.Name = "txtDabasePath";
             this.txtDabasePath.ReadOnly = true;
-            this.txtDabasePath.Size = new System.Drawing.Size(319, 26);
+            this.txtDabasePath.Size = new System.Drawing.Size(319, 29);
+            this.txtDabasePath.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtDabasePath.StateCommon.Border.Rounding = 10;
             this.txtDabasePath.TabIndex = 5;
             // 
-            // label2
+            // kgrpbackupDB
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(11, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Browse Database To Restore :";
+            this.kgrpbackupDB.HeaderVisibleSecondary = false;
+            this.kgrpbackupDB.Location = new System.Drawing.Point(21, 12);
+            this.kgrpbackupDB.Name = "kgrpbackupDB";
+            this.kgrpbackupDB.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            // 
+            // kgrpbackupDB.Panel
+            // 
+            this.kgrpbackupDB.Panel.Controls.Add(this.gGlowGroupBox1);
+            this.kgrpbackupDB.Size = new System.Drawing.Size(332, 184);
+            this.kgrpbackupDB.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kgrpbackupDB.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.kgrpbackupDB.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kgrpbackupDB.StateCommon.Border.Rounding = 10;
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Back.Image = global::RegistrationProcess.Properties.Resources.titlebg_green;
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Border.Rounding = 10;
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kgrpbackupDB.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kgrpbackupDB.TabIndex = 333;
+            this.kgrpbackupDB.ValuesPrimary.Heading = "Connect to Server";
+            this.kgrpbackupDB.ValuesPrimary.Image = null;
+            // 
+            // gGlowGroupBox1
+            // 
+            this.gGlowGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gGlowGroupBox1.Controls.Add(this.lblServerName);
+            this.gGlowGroupBox1.Controls.Add(this.btnConnect);
+            this.gGlowGroupBox1.Controls.Add(this.btnClear);
+            this.gGlowGroupBox1.Controls.Add(this.txtPassword);
+            this.gGlowGroupBox1.Controls.Add(this.lblUserID);
+            this.gGlowGroupBox1.Controls.Add(this.txtServerName);
+            this.gGlowGroupBox1.Controls.Add(this.txtUserID);
+            this.gGlowGroupBox1.Controls.Add(this.lblPassword);
+            this.gGlowGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gGlowGroupBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.gGlowGroupBox1.GlowAmount = 22;
+            this.gGlowGroupBox1.GlowColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(179)))), ((int)(((byte)(205)))));
+            this.gGlowGroupBox1.GlowFeather = 60;
+            this.gGlowGroupBox1.GlowOn = true;
+            this.gGlowGroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.gGlowGroupBox1.Name = "gGlowGroupBox1";
+            this.gGlowGroupBox1.Size = new System.Drawing.Size(324, 150);
+            this.gGlowGroupBox1.TabIndex = 287;
             // 
             // frmServerConnect
             // 
             this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::RegistrationProcess.Properties.Resources.back_green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(434, 417);
-            this.Controls.Add(this.grpDBRestore);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtServerName);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtUserID);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(378, 458);
+            this.Controls.Add(this.kgrpbackupDB);
+            this.Controls.Add(this.kgrpDBRestore);
+            this.Controls.Add(this.grpKrytonHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmServerConnect";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Connect to server";
+            this.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateCommon.Border.Rounding = 5;
+            this.Text = "Connect to Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmServerConnect_FormClosing);
             this.Load += new System.EventHandler(this.frmServerConnect_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grpKrytonHeader.Panel)).EndInit();
+            this.grpKrytonHeader.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grpKrytonHeader)).EndInit();
+            this.grpKrytonHeader.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cboAuthenticationType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpDBRestore.Panel)).EndInit();
+            this.kgrpDBRestore.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpDBRestore)).EndInit();
+            this.kgrpDBRestore.ResumeLayout(false);
             this.grpDBRestore.ResumeLayout(false);
             this.grpDBRestore.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpbackupDB.Panel)).EndInit();
+            this.kgrpbackupDB.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kgrpbackupDB)).EndInit();
+            this.kgrpbackupDB.ResumeLayout(false);
+            this.gGlowGroupBox1.ResumeLayout(false);
+            this.gGlowGroupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtUserID;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtServerName;
-        private System.Windows.Forms.ComboBox cboAuthenticationType;
-        private System.Windows.Forms.GroupBox grpDBRestore;
-        private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.Button btnRestore;
-        private System.Windows.Forms.TextBox txtDabasePath;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblServerName;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
+        private System.Windows.Forms.Label lblPassword;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUserID;
+        private System.Windows.Forms.Label lblUserID;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnConnect;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtServerName;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup grpKrytonHeader;
+        private gGlowBox.gGlowGroupBox groupBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboAuthenticationType;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kgrpDBRestore;
+        private gGlowBox.gGlowGroupBox grpDBRestore;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRestore;
+        private System.Windows.Forms.Label lblRestoreDatabase;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDabasePath;
+        private gGlowBox.gGlowGroupBox gGlowGroupBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kgrpbackupDB;
     }
 }
-

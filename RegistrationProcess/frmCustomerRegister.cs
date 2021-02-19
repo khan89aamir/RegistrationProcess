@@ -13,10 +13,11 @@ using CoreApp;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Threading;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace RegistrationProcess
 {
-    public partial class frmCustomerRegister : Form
+    public partial class frmCustomerRegister : KryptonForm
     {
         public frmCustomerRegister()
         {
@@ -36,8 +37,6 @@ namespace RegistrationProcess
         clsConnection_DAL ObjDAL = new clsConnection_DAL(true); //for connection
         clsUtility Objutil = new clsUtility(); //validating or encrypting or descrypting setgridproperty
 
-        Image B_Leave = RegistrationProcess.Properties.Resources.b_click;
-        Image B_Enter = RegistrationProcess.Properties.Resources.b_on;
         Image imgLoading = RegistrationProcess.Properties.Resources.animated;
         clsThreadTask ObjThread = new clsThreadTask();
 
@@ -299,25 +298,11 @@ namespace RegistrationProcess
 
         private void CustomerRegister_Load(object sender, EventArgs e)
         {
-            btnRegister.BackgroundImage = B_Leave;
-            btnActivate.BackgroundImage = B_Leave;
             dtpExpiryDate.MaxDate = DateTime.Now.AddYears(1);
             dtpExpiryDate.Value = DateTime.Now.AddDays(7);
             if (ObjDAL.ConnectionObject.ConnectionString == String.Empty)
                 ObjDAL.SetConnectionString(clsDMCommon.ObjCon.ConnectionString);
             DBName = ObjDAL.GetCurrentDBName(true);
-        }
-
-        private void btnRegister_MouseEnter(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            btn.BackgroundImage = B_Enter;
-        }
-
-        private void btnRegister_MouseLeave(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            btn.BackgroundImage = B_Leave;
         }
 
         private void CustomerRegister_FormClosing(object sender, FormClosingEventArgs e)

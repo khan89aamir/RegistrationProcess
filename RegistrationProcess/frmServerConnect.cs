@@ -12,15 +12,12 @@ using System.IO;
 using System.Data.Sql;
 using System.Reflection;
 using System.Threading;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace RegistrationProcess
 {
-    public partial class frmServerConnect : Form
+    public partial class frmServerConnect : KryptonForm
     {
-
-        Image B_Leave = RegistrationProcess.Properties.Resources.b_click;
-        Image B_Enter = RegistrationProcess.Properties.Resources.b_on;
-
         clsConnection_DAL ObjDAL;
         clsUtility ObjUtil = new clsUtility();
 
@@ -37,19 +34,8 @@ namespace RegistrationProcess
 
         public frmServerConnect()
         {
-            CoreApp.clsCommon.ShowErrorWindow = false;
+            clsCommon.ShowErrorWindow = false;
             InitializeComponent();
-        }
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            TextBox txt = (TextBox)sender;
-            ObjUtil.SetTextHighlightColor(txt);
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            TextBox txt = (TextBox)sender;
-            ObjUtil.SetTextHighlightColor(txt, Color.White);
         }
 
         private void cboAuthenticationType_SelectionChangeCommitted(object sender, EventArgs e)
@@ -112,7 +98,7 @@ namespace RegistrationProcess
         private void InsertClientRegistration()
         {
             //clsConnection_DAL ObjDAL = new clsConnection_DAL(true);
-            DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "[SoftKey],[ExpiryDate],[StatusDate]", "[IsServer] = 1 AND [IsKeyEnter] = 1", null);
+            DataTable dt = ObjDAL.GetDataCol(ClientDBName + ".dbo.RegistrationDetails", "[SoftKey],[ExpiryDate],[StatusDate]", "ISNULL([IsServer],0) = 1 AND ISNULL([IsKeyEnter],0) = 1", null);
             if (ObjUtil.ValidateTable(dt))
             {
                 ObjDAL.SetColumnData("PcName", SqlDbType.NVarChar, Environment.MachineName);
@@ -235,10 +221,77 @@ namespace RegistrationProcess
 
         private void frmServerConnect_Load(object sender, EventArgs e)
         {
-            btnConnect.BackgroundImage = B_Leave;
-            btnClear.BackgroundImage = B_Leave;
-            btnBrowse.BackgroundImage = B_Leave;
-            btnRestore.BackgroundImage = B_Leave;
+            clsUtility._UserMessageType = clsUtility.MessageType.Office2010Blue;
+            //clsUtility._UserMessageType = clsUtility.MessageType.SparklePurple;
+
+            LoadTheme();
+        }
+
+        private void LoadTheme()
+        {
+            //this.BackgroundImage = TAILORING.Properties.Resources.Background;
+
+            btnBrowse.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+            btnClear.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+            btnConnect.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+            btnRestore.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+            if (clsUtility.MessageType.SparklePurple == clsUtility._UserMessageType)
+            {
+                Lable_Color(Color.White);
+
+                this.BackgroundImage = null;
+                this.PaletteMode = PaletteMode.SparklePurple;
+                this.BackColor = Color.FromArgb(82, 91, 114);
+
+                kgrpbackupDB.StateCommon.HeaderPrimary.Back.Image = null;
+                grpKrytonHeader.StateCommon.HeaderPrimary.Back.Image = null;
+                kgrpDBRestore.StateCommon.HeaderPrimary.Back.Image = null;
+
+                kgrpbackupDB.PaletteMode = PaletteMode.SparklePurple;
+                grpKrytonHeader.PaletteMode = PaletteMode.SparklePurple;
+                kgrpDBRestore.PaletteMode = PaletteMode.SparklePurple;
+
+                cboAuthenticationType.PaletteMode = PaletteMode.SparklePurple;
+                btnBrowse.PaletteMode = PaletteMode.SparklePurple;
+                btnClear.PaletteMode = PaletteMode.SparklePurple;
+                btnConnect.PaletteMode = PaletteMode.SparklePurple;
+                btnRestore.PaletteMode = PaletteMode.SparklePurple;
+            }
+            else if (clsUtility.MessageType.Office2010Blue == clsUtility._UserMessageType)
+            {
+                Lable_Color(Color.Black);
+
+                this.BackgroundImage = Properties.Resources.back_green;
+                this.PaletteMode = PaletteMode.Office2010Blue;
+                this.BackColor = Color.White;
+
+                kgrpbackupDB.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+                grpKrytonHeader.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+                kgrpDBRestore.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+
+                kgrpbackupDB.PaletteMode = PaletteMode.Office2010Blue;
+                grpKrytonHeader.PaletteMode = PaletteMode.Office2010Blue;
+                kgrpDBRestore.PaletteMode = PaletteMode.Office2010Blue;
+
+                cboAuthenticationType.PaletteMode = PaletteMode.Office2010Blue;
+
+                btnBrowse.PaletteMode = PaletteMode.Office2007Blue;
+                btnClear.PaletteMode = PaletteMode.Office2007Blue;
+                btnConnect.PaletteMode = PaletteMode.Office2007Blue;
+                btnRestore.PaletteMode = PaletteMode.Office2007Blue;
+            }
+        }
+
+        private void Lable_Color(Color clr)
+        {
+            lblPassword.ForeColor = clr;
+            lblRestoreDatabase.ForeColor = clr;
+            lblServerName.ForeColor = clr;
+            lblUserID.ForeColor = clr;
         }
 
         private void frmServerConnect_FormClosing(object sender, FormClosingEventArgs e)
@@ -345,18 +398,6 @@ namespace RegistrationProcess
             this.Close();
             reg.BringToFront();
             reg.Show();
-        }
-
-        private void btnConnect_MouseEnter(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            btn.BackgroundImage = B_Enter;
-        }
-
-        private void btnConnect_MouseLeave(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            btn.BackgroundImage = B_Leave;
         }
     }
 }

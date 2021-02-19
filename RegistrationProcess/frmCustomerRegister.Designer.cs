@@ -86,8 +86,6 @@
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            this.btnRegister.MouseEnter += new System.EventHandler(this.btnRegister_MouseEnter);
-            this.btnRegister.MouseLeave += new System.EventHandler(this.btnRegister_MouseLeave);
             // 
             // label1
             // 
@@ -246,8 +244,6 @@
             this.btnActivate.Text = "Activate";
             this.btnActivate.UseVisualStyleBackColor = true;
             this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
-            this.btnActivate.MouseEnter += new System.EventHandler(this.btnRegister_MouseEnter);
-            this.btnActivate.MouseLeave += new System.EventHandler(this.btnRegister_MouseLeave);
             // 
             // txtKey
             // 
@@ -456,6 +452,10 @@
             this.MaximizeBox = false;
             this.Name = "frmCustomerRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateCommon.Border.Rounding = 5;
             this.Text = "Customer Register";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerRegister_FormClosing);
             this.Load += new System.EventHandler(this.CustomerRegister_Load);
