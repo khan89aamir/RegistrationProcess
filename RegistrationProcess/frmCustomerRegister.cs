@@ -23,6 +23,7 @@ namespace RegistrationProcess
         {
             InitializeComponent();
         }
+
         public string exeName = string.Empty; //storing current exe file name so when registration window is closed the automatic current program will open.
         string DBName = string.Empty; //storing database name
         string strRealKey = string.Empty;
@@ -42,7 +43,7 @@ namespace RegistrationProcess
 
         private void ValidatingExpDate()
         {
-            DataTable dt = ObjDAL.GetData(DBName + ".dbo.RegistrationDetails", "[PcName]='" + Environment.MachineName + "' and [IsKeyEnter]=1", "RegistrationID");
+            DataTable dt = ObjDAL.GetData(clsUtility.DBName + ".dbo.RegistrationDetails", "[PcName]='" + Environment.MachineName + "' and [IsKeyEnter]=1", "RegistrationID");
             if (dt != null && dt.Rows.Count > 0)
             {
                 dDatetimepicker dd = new dDatetimepicker(ValidatingExpDate);
@@ -88,7 +89,7 @@ namespace RegistrationProcess
         {
             ObjThread.ShowImageLoading(clsUtility.strProjectTitle, "Generating Key please Wait..", this, null);
             string s1 = CoreSys.clsRegKey.GenrateEncKey("KhanSoft", "13579");
-            if (DBName.Length > 0)
+            if (clsUtility.DBName.Length > 0)
             {
                 ValidatingExpDate();
             }
@@ -106,7 +107,7 @@ namespace RegistrationProcess
             ObjDAL.SetColumnData("Address", SqlDbType.NVarChar, txtAddress.Text.Trim());
             ObjDAL.SetColumnData("MobileNo", SqlDbType.NVarChar, txtMobileNo.Text.Trim());
             ObjDAL.SetColumnData("EmailID", SqlDbType.NVarChar, txtEmail.Text.Trim());
-            ObjDAL.InsertData(DBName + ".dbo.CompanyMaster", false);
+            ObjDAL.InsertData(clsUtility.DBName + ".dbo.CompanyMaster", false);
             ObjDAL.ResetData();
         }
         private void btnRegister_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace RegistrationProcess
                 //th.SetApartmentState(ApartmentState.STA);
                 //th.Start();
 
-                customerData = "\nDataBase Name : " + DBName + "\n" +
+                customerData = "\nDataBase Name : " + clsUtility.DBName + "\n" +
                                   "Encrypted Key : " + strRealKey + "\n" +
                                   "Customer Name : " + txtCustomerName.Text.Trim() + "\n" +
                                   "Product Name : " + txtProductName.Text.Trim() + "\n" +
@@ -175,20 +176,29 @@ namespace RegistrationProcess
                 ObjThread.CloseImageLoadingDialog();
             }
         }
+
         private void DataSave()
         {
-            ObjDAL.UpdateColumnData("SoftKey", SqlDbType.VarChar, txtEncKey.Text.Trim());
-            ObjDAL.UpdateColumnData("ExpiryDate", SqlDbType.VarChar, Objutil.Encrypt(dtpExpiryDate.Value.ToString(), true));
-            ObjDAL.UpdateColumnData("IsTrail", SqlDbType.Bit, Istrial.Checked);
-            if (DBName.Length > 0)
+            try
             {
-                ObjDAL.UpdateData(DBName + ".dbo.RegistrationDetails", "PcName='" + Environment.MachineName + "'");
+                ObjDAL.UpdateColumnData("SoftKey", SqlDbType.VarChar, txtEncKey.Text.Trim());
+                ObjDAL.UpdateColumnData("ExpiryDate", SqlDbType.VarChar, Objutil.Encrypt(dtpExpiryDate.Value.ToString(), true));
+                ObjDAL.UpdateColumnData("IsTrail", SqlDbType.Bit, Istrial.Checked);
+                if (clsUtility.DBName.Length > 0)
+                {
+                    ObjDAL.UpdateData(clsUtility.DBName + ".dbo.RegistrationDetails", "PcName='" + Environment.MachineName + "'");
+                }
+                else
+                {
+                    ObjDAL.UpdateData("dbo.RegistrationDetails", "PcName='" + Environment.MachineName + "'");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ObjDAL.UpdateData("dbo.RegistrationDetails", "PcName='" + Environment.MachineName + "'");
+                clsUtility.ShowErrorMessage(ex.Message);
             }
         }
+
         private bool Validation()
         {
             txtEncKey.Clear();
@@ -264,7 +274,7 @@ namespace RegistrationProcess
             {
                 //DataSave();
                 //isexit = false;
-                customerData = "DataBase Name : " + DBName + "\n" +
+                customerData = "DataBase Name : " + clsUtility.DBName + "\n" +
                                   "Encrypted Key : " + strRealKey + "\n" +
                                   "Customer Name : " + txtCustomerName.Text.Trim() + "\n" +
                                   "Product Name : " + txtProductName.Text.Trim() + "\n" +
@@ -278,7 +288,7 @@ namespace RegistrationProcess
                    "\n" + customerData;
 
                 ObjDAL.UpdateColumnData("IsKeyEnter", SqlDbType.Bit, 1);
-                if (ObjDAL.UpdateData(DBName + ".dbo.RegistrationDetails", "PcName='" + Environment.MachineName + "'") > 0)
+                if (ObjDAL.UpdateData(clsUtility.DBName + ".dbo.RegistrationDetails", "PcName='" + Environment.MachineName + "'") > 0)
                 {
                     clsUtility.ShowInfoMessage("Thank you for Registering " + clsUtility.strProjectTitle, clsUtility.strProjectTitle);
                     SendEmail("Product key has been Entered in " + clsUtility.strProjectTitle, body);
@@ -296,13 +306,89 @@ namespace RegistrationProcess
             Application.Exit();
         }
 
+        private void LoadTheme()
+        {
+            //this.BackgroundImage = TAILORING.Properties.Resources.Background;
+
+            btnActivate.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+            btnRegister.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+            if (clsUtility.MessageType.SparklePurple == clsUtility._UserMessageType)
+            {
+                Lable_Color(Color.White);
+
+                this.BackgroundImage = null;
+                this.PaletteMode = PaletteMode.SparklePurple;
+                this.BackColor = Color.FromArgb(82, 91, 114);
+
+                dtpExpiryDate.PaletteMode = PaletteMode.SparklePurple;
+                btnActivate.PaletteMode = PaletteMode.SparklePurple;
+                btnRegister.PaletteMode = PaletteMode.SparklePurple;
+
+            }
+            else if (clsUtility.MessageType.Office2010Blue == clsUtility._UserMessageType)
+            {
+                Lable_Color(Color.Black);
+
+                this.BackgroundImage = Properties.Resources.back_green;
+                this.PaletteMode = PaletteMode.Office2010Blue;
+                this.BackColor = Color.White;
+
+                dtpExpiryDate.PaletteMode = PaletteMode.Office2010Blue;
+                btnActivate.PaletteMode = PaletteMode.Office2007Blue;
+                btnRegister.PaletteMode = PaletteMode.Office2007Blue;
+            }
+        }
+
+        private void Lable_Color(Color clr)
+        {
+            lblAddress.ForeColor = clr;
+            lblCustomerName.ForeColor = clr;
+            lblEmail.ForeColor = clr;
+            lblExpiry.ForeColor = clr;
+            lblMobileNo.ForeColor = clr;
+            lblOrg.ForeColor = clr;
+            lblProductName.ForeColor = clr;
+            lblTitle.ForeColor = clr;
+
+            Istrial.ForeColor = clr;
+            checkBox1.ForeColor = clr;
+
+            if (clr != Color.Black)
+            {
+                lblError1.ForeColor = clr;
+                lblError2.ForeColor = clr;
+                lblError3.ForeColor = clr;
+                lblError4.ForeColor = clr;
+                lblError5.ForeColor = clr;
+                lblError6.ForeColor = clr;
+            }
+            else
+            {
+                lblError1.ForeColor = Color.Red;
+                lblError2.ForeColor = Color.Red;
+                lblError3.ForeColor = Color.Red;
+                lblError4.ForeColor = Color.Red;
+                lblError5.ForeColor = Color.Red;
+                lblError6.ForeColor = Color.Red;
+            }
+        }
+
         private void CustomerRegister_Load(object sender, EventArgs e)
         {
+            //clsUtility._UserMessageType = clsUtility.MessageType.Office2010Blue;
+            //clsUtility._UserMessageType = clsUtility.MessageType.SparklePurple;
+
+            LoadTheme();
+
             dtpExpiryDate.MaxDate = DateTime.Now.AddYears(1);
             dtpExpiryDate.Value = DateTime.Now.AddDays(7);
             if (ObjDAL.ConnectionObject.ConnectionString == String.Empty)
+            {
                 ObjDAL.SetConnectionString(clsDMCommon.ObjCon.ConnectionString);
-            DBName = ObjDAL.GetCurrentDBName(true);
+            }
+            //DBName = ObjDAL.GetCurrentDBName(true);
         }
 
         private void CustomerRegister_FormClosing(object sender, FormClosingEventArgs e)
@@ -357,15 +443,6 @@ namespace RegistrationProcess
             }
         }
 
-        private void MouseFoucsEnter(object sender, EventArgs e)
-        {
-            Objutil.SetTextHighlightColor(sender);
-        }
-        private void MouseFoucsLeave(object sender, EventArgs e)
-        {
-            Objutil.SetTextHighlightColor(sender, Color.White);
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -379,14 +456,7 @@ namespace RegistrationProcess
                 string body = "Request for a new product key. from Machine : " + Environment.MachineName + " has requested for a new product key for \n" + customerData;
 
                 SendEmail(sub, body);
-                //if (b)
-                //{
-                //    clsUtility.ShowInfoMessage("An E-Mail has been sent to the software developers for a Product Key.\nYou will receive your Product Key at your E-Mail Address", clsUtility.strProjectTitle);
-                //}
-                //else
-                //{
-                //    clsUtility.ShowInfoMessage("Unable to Send An E-Mail for Registration Key request.", clsUtility.strProjectTitle);
-                //}
+
                 btnRegister.Enabled = false;
                 txtKey.Enabled = true;
                 txtKey.Focus();

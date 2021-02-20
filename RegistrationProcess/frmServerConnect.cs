@@ -221,7 +221,7 @@ namespace RegistrationProcess
 
         private void frmServerConnect_Load(object sender, EventArgs e)
         {
-            clsUtility._UserMessageType = clsUtility.MessageType.Office2010Blue;
+            //clsUtility._UserMessageType = clsUtility.MessageType.Office2010Blue;
             //clsUtility._UserMessageType = clsUtility.MessageType.SparklePurple;
 
             LoadTheme();
@@ -386,18 +386,32 @@ namespace RegistrationProcess
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            ThrRestore = new Thread(new ThreadStart(RestoreDataBase));
-            ThrRestore.SetApartmentState(ApartmentState.MTA);
-            ThrRestore.Start();
-            ObjLoading.label1.Text = "Restoring Please Wait...";
-            ObjLoading.BringToFront();
-            ObjLoading.ShowDialog();
+            try
+            {
+                if (!ObjUtil.IsControlTextEmpty(txtDabasePath))
+                {
+                    ThrRestore = new Thread(new ThreadStart(RestoreDataBase));
+                    ThrRestore.SetApartmentState(ApartmentState.MTA);
+                    ThrRestore.Start();
+                    ObjLoading.label1.Text = "Restoring Please Wait...";
+                    ObjLoading.BringToFront();
+                    ObjLoading.ShowDialog();
 
-            frmCustomerRegister reg = new RegistrationProcess.frmCustomerRegister();
-            //reg.exeName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
-            this.Close();
-            reg.BringToFront();
-            reg.Show();
+                    frmCustomerRegister reg = new RegistrationProcess.frmCustomerRegister();
+                    //reg.exeName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+                    this.Close();
+                    reg.BringToFront();
+                    reg.Show();
+                }
+                else
+                {
+                    clsUtility.ShowInfoMessage("Select DataBase to Restore..");
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtility.ShowErrorMessage(ex.Message);
+            }
         }
     }
 }
