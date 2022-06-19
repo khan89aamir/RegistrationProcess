@@ -60,13 +60,13 @@ namespace RegistrationProcess
                 }
                 else
                 {
-                    grpDBRestore.Enabled = true;
+                    kgrpDBRestoreGlow.Enabled = true;
                     txtDabasePath.Focus();
                 }
             }
             else if (cboAuthenticationType.SelectedIndex == 1)
             {
-                grpDBRestore.Enabled = false;
+                kgrpDBRestoreGlow.Enabled = false;
                 ConnectToDB(clsDMCommon.strServerName, clsDMCommon.strUserID, clsDMCommon.strUserPassword, ClientDBName);
 
                 String conn = "Server=" + clsDMCommon.strServerName + ";Database=" + ClientDBName + ";uid=" + clsDMCommon.strUserID
@@ -143,7 +143,7 @@ namespace RegistrationProcess
                     clsDMCommon.ObjCon.Open();
                     clsDMCommon.ObjCon.Close();
                     IsConnect = true;
-                    groupBox1.Enabled = true;
+                    grpKrytonHeaderGlow.Enabled = true;
                     btnConnect.Enabled = false;
                 }
             }
@@ -222,7 +222,9 @@ namespace RegistrationProcess
         private void frmServerConnect_Load(object sender, EventArgs e)
         {
             //clsUtility._UserMessageType = clsUtility.MessageType.Office2010Blue;
+            //clsUtility._UserMessageType = clsUtility.MessageType.Office2007Blue;
             //clsUtility._UserMessageType = clsUtility.MessageType.SparklePurple;
+            //clsUtility._UserMessageType = clsUtility.MessageType.BlueTheme;
 
             LoadTheme();
         }
@@ -261,6 +263,73 @@ namespace RegistrationProcess
                 btnConnect.PaletteMode = PaletteMode.SparklePurple;
                 btnRestore.PaletteMode = PaletteMode.SparklePurple;
             }
+            else if (clsUtility.MessageType.BlueTheme == clsUtility._UserMessageType)
+            {
+                Lable_Color(Color.Black);
+
+                this.BackgroundImage = Properties.Resources.back_green;
+                this.PaletteMode = PaletteMode.Office2007Blue;
+                this.BackColor = Color.White;
+
+                kgrpbackupDB.StateCommon.HeaderPrimary.Back.Color1 = Color.FromArgb(99, 157, 207);
+                kgrpbackupDB.StateCommon.HeaderPrimary.Back.Color2 = Color.FromArgb(99, 157, 207);
+                kgrpbackupDB.StateCommon.Border.Color1 = Color.FromArgb(99, 157, 207);
+                kgrpbackupDB.StateNormal.HeaderPrimary.Back.Color1 = Color.FromArgb(99, 157, 207);
+                kgrpbackupDB.StateCommon.HeaderPrimary.Content.ShortText.Color1 = Color.White;
+                kgrpbackupDBGlow.BackColor = Color.White;
+
+                grpKrytonHeader.StateCommon.HeaderPrimary.Back.Color1 = Color.FromArgb(99, 157, 207);
+                grpKrytonHeader.StateCommon.HeaderPrimary.Back.Color2 = Color.FromArgb(99, 157, 207);
+                grpKrytonHeader.StateCommon.Border.Color1 = Color.FromArgb(99, 157, 207);
+                grpKrytonHeader.StateNormal.HeaderPrimary.Back.Color1 = Color.FromArgb(99, 157, 207);
+                grpKrytonHeader.StateCommon.HeaderPrimary.Content.ShortText.Color1 = Color.White;
+                grpKrytonHeaderGlow.BackColor = Color.White;
+
+                kgrpDBRestore.StateCommon.HeaderPrimary.Back.Color1 = Color.FromArgb(99, 157, 207);
+                kgrpDBRestore.StateCommon.HeaderPrimary.Back.Color2 = Color.FromArgb(99, 157, 207);
+                kgrpDBRestore.StateCommon.Border.Color1 = Color.FromArgb(99, 157, 207);
+                kgrpDBRestore.StateNormal.HeaderPrimary.Back.Color1 = Color.FromArgb(99, 157, 207);
+                kgrpDBRestore.StateCommon.HeaderPrimary.Content.ShortText.Color1 = Color.White;
+                kgrpDBRestoreGlow.BackColor = Color.White;
+
+                //kgrpbackupDB.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+                //grpKrytonHeader.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+                //kgrpDBRestore.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+
+                kgrpbackupDB.PaletteMode = PaletteMode.Office2007Blue;
+                grpKrytonHeader.PaletteMode = PaletteMode.Office2007Blue;
+                kgrpDBRestore.PaletteMode = PaletteMode.Office2007Blue;
+
+                cboAuthenticationType.PaletteMode = PaletteMode.Office2007Blue;
+
+                btnBrowse.PaletteMode = PaletteMode.Office2007Blue;
+                btnClear.PaletteMode = PaletteMode.Office2007Blue;
+                btnConnect.PaletteMode = PaletteMode.Office2007Blue;
+                btnRestore.PaletteMode = PaletteMode.Office2007Blue;
+            }
+            else if (clsUtility.MessageType.Office2007Blue == clsUtility._UserMessageType)
+            {
+                Lable_Color(Color.Black);
+
+                this.BackgroundImage = Properties.Resources.back_green;
+                this.PaletteMode = PaletteMode.Office2007Blue;
+                this.BackColor = Color.White;
+
+                kgrpbackupDB.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+                grpKrytonHeader.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+                kgrpDBRestore.StateCommon.HeaderPrimary.Back.Image = Properties.Resources.titlebg_green;
+
+                kgrpbackupDB.PaletteMode = PaletteMode.Office2007Blue;
+                grpKrytonHeader.PaletteMode = PaletteMode.Office2007Blue;
+                kgrpDBRestore.PaletteMode = PaletteMode.Office2007Blue;
+
+                cboAuthenticationType.PaletteMode = PaletteMode.Office2007Blue;
+
+                btnBrowse.PaletteMode = PaletteMode.Office2007Blue;
+                btnClear.PaletteMode = PaletteMode.Office2007Blue;
+                btnConnect.PaletteMode = PaletteMode.Office2007Blue;
+                btnRestore.PaletteMode = PaletteMode.Office2007Blue;
+            }
             else if (clsUtility.MessageType.Office2010Blue == clsUtility._UserMessageType)
             {
                 Lable_Color(Color.Black);
@@ -279,10 +348,10 @@ namespace RegistrationProcess
 
                 cboAuthenticationType.PaletteMode = PaletteMode.Office2010Blue;
 
-                btnBrowse.PaletteMode = PaletteMode.Office2007Blue;
-                btnClear.PaletteMode = PaletteMode.Office2007Blue;
-                btnConnect.PaletteMode = PaletteMode.Office2007Blue;
-                btnRestore.PaletteMode = PaletteMode.Office2007Blue;
+                btnBrowse.PaletteMode = PaletteMode.Office2010Blue;
+                btnClear.PaletteMode = PaletteMode.Office2010Blue;
+                btnConnect.PaletteMode = PaletteMode.Office2010Blue;
+                btnRestore.PaletteMode = PaletteMode.Office2010Blue;
             }
         }
 

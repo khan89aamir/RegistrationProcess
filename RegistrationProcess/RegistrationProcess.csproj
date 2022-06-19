@@ -54,17 +54,20 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\..\..\..\DLL\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreApp_DLLs.3.1.27\lib\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
-    <Reference Include="CoreApp, Version=3.1.2.2, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\CoreApp_DLLs.3.1.21\lib\CoreApp.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreApp_DLLs.3.1.27\lib\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreApp, Version=3.1.2.6, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\CoreApp_DLLs.3.1.27\lib\CoreApp.dll</HintPath>
     </Reference>
     <Reference Include="CoreSys, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\CoreApp_DLLs.3.1.21\lib\CoreSys.dll</HintPath>
+      <HintPath>..\packages\CoreApp_DLLs.3.1.27\lib\CoreSys.dll</HintPath>
     </Reference>
-    <Reference Include="gGlowBox">
-      <HintPath>..\..\..\..\DLL\gGlowBox.dll</HintPath>
+    <Reference Include="gGlowBox, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreApp_DLLs.3.1.27\lib\gGlowBox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
